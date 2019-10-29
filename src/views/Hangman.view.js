@@ -93,7 +93,7 @@ class HangmanView {
       2: this.drawErrorsCanvas.bind(this, { Fromx: 60, Fromy: 46, Tox: 20, Toy: 50 }),
       3: this.drawErrorsCanvas.bind(this, { Fromx: 60, Fromy: 46, Tox: 100, Toy: 50 }),
       4: this.drawErrorsCanvas.bind(this, { Fromx: 60, Fromy: 36, Tox: 60, Toy: 70 }),
-      5: this.head,
+      5: this.drawHead.bind(this),
       6: this.drawErrorsCanvas.bind(this, { Fromx: 60, Fromy: 5, Tox: 60, Toy: 15 }),
       7: this.drawErrorsCanvas.bind(this, { Fromx: 0, Fromy: 5, Tox: 70, Toy: 5 }),
       8: this.drawErrorsCanvas.bind(this, { Fromx: 10, Fromy: 0, Tox: 10, Toy: 150 }),
@@ -131,16 +131,16 @@ class HangmanView {
     this.DOM.context.fillText('_', this.Tox, this.Toy);
   };
 
-  drawErrorsCanvas = positions => {
+  drawErrorsCanvas(positions) {
     this.DOM.context.beginPath();
     this.DOM.context.moveTo(positions.Fromx, positions.Fromy);
     this.DOM.context.lineTo(positions.Tox, positions.Toy);
     this.DOM.context.stroke();
-  };
+  }
 
-  head = () => {
+  drawHead() {
     this.DOM.context.beginPath();
     this.DOM.context.arc(60, 25, 10, 0, Math.PI * 2, true);
     this.DOM.context.stroke();
-  };
+  }
 }
